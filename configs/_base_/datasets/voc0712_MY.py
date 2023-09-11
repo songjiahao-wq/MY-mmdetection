@@ -1,7 +1,13 @@
 # dataset settings
 dataset_type = 'VOCDataset'
-data_root = 'data/VOCdevkit/'
-
+data_root = r'data/VOCdevkit/'
+METAINFO = {
+    'classes':
+        ('cr', 'pa', 'in', 'ps', 'rs', 'sc'),
+    # palette is a list of color tuples, which is used for visualization.
+    'palette': [(106, 0, 228), (119, 11, 32), (165, 42, 42), (0, 0, 192),
+                (197, 226, 255), (0, 60, 100)]
+}
 # Example to use different file client
 # Method 1: simply set the data root and let the file I/O module
 # automatically Infer from prefix (not support LMDB and Memcache yet)
@@ -20,13 +26,13 @@ backend_args = None
 train_pipeline = [
     dict(type='LoadImageFromFile', backend_args=backend_args),
     dict(type='LoadAnnotations', with_bbox=True),
-    dict(type='Resize', scale=(1000, 600), keep_ratio=True),
+    dict(type='Resize', scale=(224, 224), keep_ratio=True),
     dict(type='RandomFlip', prob=0.5),
     dict(type='PackDetInputs')
 ]
 test_pipeline = [
     dict(type='LoadImageFromFile', backend_args=backend_args),
-    dict(type='Resize', scale=(1000, 600), keep_ratio=True),
+    dict(type='Resize', scale=(224, 224), keep_ratio=True),
     # avoid bboxes being resized
     dict(type='LoadAnnotations', with_bbox=True),
     dict(

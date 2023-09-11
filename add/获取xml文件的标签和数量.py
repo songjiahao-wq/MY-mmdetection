@@ -6,9 +6,9 @@ import glob
 
 def count_num(indir):
     # 提取xml文件列表
-    os.chdir(indir)
+    # os.chdir(indir)
     annotations = os.listdir('..')
-    annotations = glob.glob(r'D:\xian_yu\data(1)\data2\kunchong/' + '*.xml')
+    annotations = glob.glob(r'D:\project\7.4\MY-mmdetection\data\VOCdevkit\VOC2007\Annotations/' + '*.xml')
 
     dict = {}  # 新建字典，用于存放各类标签名及其对应的数目
     for i, file in enumerate(annotations):  # 遍历xml文件
@@ -32,6 +32,6 @@ def count_num(indir):
         print(key + ': ' + str(dict[key]))
 
 
-indir = r'E:\tuberculosis-phonecamera\xml/'  # xml文件所在的目录
+indir = r'D:\project\7.4\MY-mmdetection\data\VOCdevkit\VOC2007\Annotations/'  # xml文件所在的目录
 
 count_num(indir)  # 调用函数统计各类标签数目
