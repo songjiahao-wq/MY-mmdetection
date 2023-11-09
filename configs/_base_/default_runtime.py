@@ -4,7 +4,7 @@ default_hooks = dict(
     timer=dict(type='IterTimerHook'),
     logger=dict(type='LoggerHook', interval=50),
     param_scheduler=dict(type='ParamSchedulerHook'),
-    checkpoint=dict(type='CheckpointHook', interval=1, save_best='auto',max_keep_ckpts=3),
+    checkpoint=dict(type='CheckpointHook', interval=1, save_best='auto', max_keep_ckpts=3),
     sampler_seed=dict(type='DistSamplerSeedHook'),
     visualization=dict(type='DetVisualizationHook'))
 
@@ -19,6 +19,6 @@ visualizer = dict(
     type='DetLocalVisualizer', vis_backends=vis_backends, name='visualizer')
 log_processor = dict(type='LogProcessor', window_size=50, by_epoch=True)
 
-log_level = 'INFO'
-load_from = None
-resume = False
+log_level = 'INFO'  # 打印的信息级别
+load_from = None  # 加载的预训练模型地址
+resume = False  # 重新训练的模型地址
