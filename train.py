@@ -3,5 +3,14 @@ import subprocess
 
 if __name__ =='__main__':
     # subprocess.run(['python', 'setup.py', 'install'])
-    # subprocess.run(['python', './tools/train.py', 'configs/faster_rcnn/faster-rcnn_r50_fpn_1x_coco_MY.py'])
-    subprocess.run(['python', './tools/train.py', 'configs/mask_rcnn/mask-rcnn_r50_fpn_1x_coco.py'])
+    subprocess.run(['python', './tools/train.py', 'configs/dino/dino-4scale_r50_8xb2-12e_coco.py']) # 训练
+    # subprocess.run(['python', './tools/analysis_tools/get_flops.py', 'configs/detr/detr_r18_8xb2-500e_coco.py',
+    #                 '--cfg-options','scale=(1, 3, 640, 640) ']) # 计算参数量和计算量
+    # python tools/analysis_tools/get_flops.py ${CONFIG_FILE} [--shape ${INPUT_SHAPE}]
+"""
+# 计算fps
+python  tools/analysis_tools/benchmark.py ^
+       work_dirs/dino-4scale_r50_8xb2-12e_coco/dino-4scale_r50_8xb2-12e_coco.py ^
+       --checkpoint work_dirs/dino-4scale_r50_8xb2-12e_coco/epoch_1.pth ^
+       --launcher none
+"""
