@@ -2,6 +2,11 @@ import os
 import subprocess
 
 if __name__ =='__main__':
+
+    # command = ['python', './tools/train.py',
+    # 'configs/fsaf/fsaf_r50_fpn_1x_coco.py',
+    # '--cfg-options', 'train_cfg.max_epochs=100','mmobel.bbox_head.num_classes=8','scale=(1, 3, 640, 640)']#, f'model.backbone.init_cfg=None']
+    # subprocess.run(command) # 训练
     # subprocess.run(['python', 'setup.py', 'install'])
     subprocess.run(['python', './tools/train.py', 'configs/detr/detr_r50_8xb2-150e_coco.py']) # 训练
 
