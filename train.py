@@ -8,7 +8,12 @@ if __name__ =='__main__':
     # '--cfg-options', 'train_cfg.max_epochs=100','mmobel.bbox_head.num_classes=8','scale=(1, 3, 640, 640)']#, f'model.backbone.init_cfg=None']
     # subprocess.run(command) # 训练
     # subprocess.run(['python', 'setup.py', 'install'])
-    subprocess.run(['python', './tools/train.py', 'configs/detr/detr_r50_8xb2-150e_coco.py']) # 训练
+    # c ='dict(layer='Conv2d', std=0.001, type='Normal')'
+    command = ['python',
+               './tools/train.py',
+               'configs/ssd/ssdlite_mobilenetv2-scratch_8xb24-600e_coco.py',
+               '--cfg-options', f'model.backbone.init_cfg=Normal']
+    subprocess.run(command) # 训练
 
     # python tools/analysis_tools/get_flops.py ${CONFIG_FILE} [--shape ${INPUT_SHAPE}]
 """
